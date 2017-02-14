@@ -27,7 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ebanswers.netkitchen.R;
+import com.frame.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -37,28 +37,24 @@ import java.util.regex.Pattern;
 
 /**
  * Helper for layouts that want to support percentage based dimensions.
- * <p/>
  * <p>This class collects utility methods that are involved in extracting percentage based dimension
  * attributes and applying them to ViewGroup's children. If you would like to implement a layout
  * that supports percentage based dimensions, you need to take several steps:
- * <p/>
- * <ol>
- * <li> You need a {@link ViewGroup.LayoutParams} subclass in your ViewGroup that implements
+ * You need a {@link ViewGroup.LayoutParams} subclass in your ViewGroup that implements
  * {@link android.support.percent.PercentLayoutHelper.PercentLayoutParams}.
- * <li> In your {@code LayoutParams(Context c, AttributeSet attrs)} constructor create an instance
+ * In your {@code LayoutParams(Context c, AttributeSet attrs)} constructor create an instance
  * of {@link PercentLayoutInfo} by calling
  * {@link PercentLayoutHelper#getPercentLayoutInfo(Context, AttributeSet)}. Return this
  * object from {@code public PercentLayoutHelper.PercentLayoutInfo getPercentLayoutInfo()}
  * method that you implemented for {@link android.support.percent.PercentLayoutHelper.PercentLayoutParams} interface.
- * <li> Override
+ * Override
  * {@link ViewGroup.LayoutParams#setBaseAttributes(TypedArray, int, int)}
  * with a single line implementation {@code PercentLayoutHelper.fetchWidthAndHeight(this, a,
  * widthAttr, heightAttr);}
- * <li> In your ViewGroup override {@link ViewGroup#generateLayoutParams(AttributeSet)} to return
+ * In your ViewGroup override {@link ViewGroup#generateLayoutParams(AttributeSet)} to return
  * your LayoutParams.
- * <li> In your {@link ViewGroup#onMeasure(int, int)} override, you need to implement following
+ * In your {@link ViewGroup#onMeasure(int, int)} override, you need to implement following
  * pattern:
- * <pre class="prettyprint">
  * protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
  * mHelper.adjustChildren(widthMeasureSpec, heightMeasureSpec);
  * super.onMeasure(widthMeasureSpec, heightMeasureSpec);
@@ -66,16 +62,12 @@ import java.util.regex.Pattern;
  * super.onMeasure(widthMeasureSpec, heightMeasureSpec);
  * }
  * }
- * </pre>
- * <li>In your {@link ViewGroup#onLayout(boolean, int, int, int, int)} override, you need to
+ * In your {@link ViewGroup#onLayout(boolean, int, int, int, int)} override, you need to
  * implement following pattern:
- * <pre class="prettyprint">
  * protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
  * super.onLayout(changed, left, top, right, bottom);
  * mHelper.restoreOriginalParams();
  * }
- * </pre>
- * </ol>
  */
 public class PercentLayoutHelper {
     private static final String TAG = "PercentLayout";
@@ -369,7 +361,6 @@ public class PercentLayoutHelper {
 
     /**
      * widthStr to PercentVal
-     * <br/>
      * eg: 35%w => new PercentVal(35, true)
      *
      * @param percentStr
@@ -430,7 +421,7 @@ public class PercentLayoutHelper {
     /**
      * Iterates over children and checks if any of them would like to get more space than it
      * received through the percentage dimension.
-     * <p/>
+     * <p>
      * If you are building a layout that supports percentage dimensions you are encouraged to take
      * advantage of this method. The developer should be able to specify that a child should be
      * remeasured by adding normal dimension attribute with {@code wrap_content} value. For example
@@ -654,7 +645,7 @@ public class PercentLayoutHelper {
     /**
      * If a layout wants to support percentage based dimensions and use this helper class, its
      * {@code LayoutParams} subclass must implement this interface.
-     * <p/>
+     * <p>
      * Your {@code LayoutParams} subclass should contain an instance of {@code PercentLayoutInfo}
      * and the implementation of this interface should be a simple accessor.
      */

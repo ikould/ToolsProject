@@ -25,37 +25,33 @@ import android.widget.FrameLayout;
 /**
  * Subclass of {@link FrameLayout} that supports percentage based dimensions and
  * margins.
- *
+ * <p>
  * You can specify dimension or a margin of child by using attributes with "Percent" suffix. Follow
  * this example:
- *
- * <pre class="prettyprint">
- * &lt;android.support.percent.PercentFrameLayout
- *         xmlns:android="http://schemas.android.com/apk/res/android"
- *         xmlns:app="http://schemas.android.com/apk/res-auto"
- *         android:layout_width="match_parent"
- *         android:layout_height="match_parent"/&gt
- *     &lt;ImageView
- *         app:layout_widthPercent="50%"
- *         app:layout_heightPercent="50%"
- *         app:layout_marginTopPercent="25%"
- *         app:layout_marginLeftPercent="25%"/&gt
- * &lt;/android.support.percent.PercentFrameLayout/&gt
- * </pre>
- *
+ * <p>
+ * android.support.percent.PercentFrameLayout
+ * xmlns:android="http://schemas.android.com/apk/res/android"
+ * xmlns:app="http://schemas.android.com/apk/res-auto"
+ * android:layout_width="match_parent"
+ * android:layout_height="match_parent"
+ * ImageView
+ * app:layout_widthPercent="50%"
+ * app:layout_heightPercent="50%"
+ * app:layout_marginTopPercent="25%"
+ * app:layout_marginLeftPercent="25%"
+ * android.support.percent.PercentFrameLayout
+ * <p>
  * The attributes that you can use are:
- * <ul>
- *     <li>{@code layout_widthPercent}
- *     <li>{@code layout_heightPercent}
- *     <li>{@code layout_marginPercent}
- *     <li>{@code layout_marginLeftPercent}
- *     <li>{@code layout_marginTopPercent}
- *     <li>{@code layout_marginRightPercent}
- *     <li>{@code layout_marginBottomPercent}
- *     <li>{@code layout_marginStartPercent}
- *     <li>{@code layout_marginEndPercent}
- * </ul>
- *
+ * {@code layout_widthPercent}
+ * {@code layout_heightPercent}
+ * {@code layout_marginPercent}
+ * {@code layout_marginLeftPercent}
+ * {@code layout_marginTopPercent}
+ * {@code layout_marginRightPercent}
+ * {@code layout_marginBottomPercent}
+ * @code layout_marginStartPercent}
+ * {@code layout_marginEndPercent}
+ * <p>
  * It is not necessary to specify {@code layout_width/height} if you specify {@code
  * layout_widthPercent.} However, if you want the view to be able to take up more space than what
  * percentage value permits, you can add {@code layout_width/height="wrap_content"}. In that case

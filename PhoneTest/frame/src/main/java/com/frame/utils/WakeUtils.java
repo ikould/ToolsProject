@@ -22,7 +22,8 @@ public class WakeUtils {
     public static WakeUtils getInstance(Context context) {
         if (instance == null) {
             synchronized (WakeUtils.class) {
-                instance = new WakeUtils(context.getApplicationContext());
+                if (instance == null)
+                    instance = new WakeUtils(context.getApplicationContext());
             }
         }
         return instance;
@@ -95,7 +96,7 @@ public class WakeUtils {
         return Settings.System.getLong(mContext.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, -1);
     }
 
-    public void realseInstance(){
+    public void realseInstance() {
         instance = null;
     }
 
